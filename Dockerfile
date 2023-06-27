@@ -9,6 +9,9 @@ ENV PATH=$PATH:/home/devuser/build-nodejs-for-android
 RUN sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
         gcc g++ gcc-multilib g++-multilib \
     && \
+    wget -O NDK -q https://dl.google.com/android/repository/android-ndk-r21b-linux-x86_64.zip && \
+          sudo apt install unzip -y && \
+          unzip -q NDK && export NDK=./NDK && \
     git clone https://github.com/sjitech/build-nodejs-for-android -b master --single-branch && \
     git clone https://github.com/nodejs/node && \
     cd node && \
