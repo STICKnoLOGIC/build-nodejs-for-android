@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:latest
       
-    - name: Upload image
-      uses: ishworkh/docker-image-artifact-upload@v2.0.1
+    - uses: actions/upload-artifact@v3
       with:
-        image: "my-image-name:latest"
+        name: my-artifact
+        path: ./out-bin/
